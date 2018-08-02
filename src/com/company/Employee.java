@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 class Employee {
     private String firstName, lastName, startDate, endDate;
-    private Integer annualSalary, grossIncome, taxValue;
-    private Double superRate;
+    private int annualSalary, grossIncome, taxValue;
+    private double superRate;
 
     void getEmployeeInfo(){
         Scanner scanner = new Scanner(System.in);
