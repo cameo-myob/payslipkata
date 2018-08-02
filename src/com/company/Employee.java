@@ -5,7 +5,6 @@ import java.util.Scanner;
 // gross income, income tax, net income and super.
 
 
-
 class Employee {
     private String firstName, lastName, startDate, endDate;
     private Integer annualSalary, grossIncome, taxValue;
@@ -17,7 +16,7 @@ class Employee {
         System.out.println("Welcome to the payslip generator! \nPlease input your first name:");
         this.firstName = scanner.nextLine();
         System.out.println("Please input your surname:");
-        this.lastName = scanner.nextLine();
+        lastName = scanner.nextLine();
         System.out.println("Please enter your annual salary:");
         this.annualSalary = Integer.parseInt(scanner.nextLine());
         System.out.println("Please enter your super rate:");
