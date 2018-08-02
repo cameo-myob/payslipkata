@@ -1,5 +1,5 @@
 package com.company;
-import java.util.Scanner;
+
 import java.io.*;
 
 // PAYSLIP KATA DETAILS
@@ -19,27 +19,11 @@ public class Main {
 
         Employee user = new Employee();
 
-        Scanner scanner = new Scanner(System.in);
-	    System.out.println("Welcome to the payslip generator! \nPlease input your first name:");
-	    user.firstName = scanner.nextLine();
-	    System.out.println("Please input your surname:");
-	    user.lastName = scanner.nextLine();
-        System.out.println("Please enter your annual salary:");
-        user.annualSalary = Integer.parseInt(scanner.nextLine());
-        System.out.println("Please enter your super rate:");
-        user.superRate = Double.parseDouble(scanner.nextLine());
-        System.out.println("Please enter your payment start date:");
-        user.startDate = scanner.nextLine();
-        System.out.println("Please enter your payment end date:");
-        user.endDate = scanner.nextLine();
-
-        user.setGrossIncome();
-        user.calculateTaxValue();
-        user.printPaycheckDetails();
-
+        user.getEmployeeInfo();
+        user.calculatePaycheck();
+        user.printPaycheck();
 
     }
-
 
 
 }

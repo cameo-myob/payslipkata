@@ -1,17 +1,40 @@
 package com.company;
+import java.util.Scanner;
 
 // Employee has first name, last name, annual salary, super rate, payment start date, payment end date,
 // gross income, income tax, net income and super.
 
-public class Employee {
-    String firstName, lastName, startDate, endDate;
-    Integer annualSalary, grossIncome, taxValue;
-    Double superRate;
 
 
+class Employee {
+    private String firstName, lastName, startDate, endDate;
+    private Integer annualSalary, grossIncome, taxValue;
+    private Double superRate;
+
+
+    void getEmployeeInfo(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the payslip generator! \nPlease input your first name:");
+        firstName = scanner.nextLine();
+        System.out.println("Please input your surname:");
+        lastName = scanner.nextLine();
+        System.out.println("Please enter your annual salary:");
+        annualSalary = Integer.parseInt(scanner.nextLine());
+        System.out.println("Please enter your super rate:");
+        superRate = Double.parseDouble(scanner.nextLine());
+        System.out.println("Please enter your payment start date:");
+        startDate = scanner.nextLine();
+        System.out.println("Please enter your payment end date:");
+        endDate = scanner.nextLine();
+    }
+    void calculatePaycheck(){
+        calculateTaxValue();
+        setGrossIncome();
+    }
 
     void setGrossIncome(){
-        grossIncome = Math.round(annualSalary/12);
+        grossIncome = (int)Math.round(annualSalary/12.0);
     }
 
     void calculateTaxValue(){
@@ -28,13 +51,13 @@ public class Employee {
         taxValue = (int)Math.round(tax);
     }
 
-    void printPaycheckDetails(){
+    void printPaycheck(){
         System.out.println("\nYour payslip has been generated: \n");
         System.out.println("Name: " + firstName + " " + lastName + "\n" +
                 "Pay Period: " + startDate + " - " + endDate + "\n" +
-                "Gross income: " + grossIncome + "\n" +
-                "Income tax: " + taxValue + "\n" +
-                "Net income: " + (grossIncome - taxValue) + "\n" +
+                "Gross Income: " + grossIncome + "\n" +
+                "Income Tax: " + taxValue + "\n" +
+                "Net Income: " + (grossIncome - taxValue) + "\n" +
                 "Super: " +  (int)((superRate / 100) * grossIncome) + "\n\n" +
                 "Thank you for using MYOB!");
     }
