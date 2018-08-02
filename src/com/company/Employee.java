@@ -11,33 +11,28 @@ class Employee {
     private Integer annualSalary, grossIncome, taxValue;
     private Double superRate;
 
-
     void getEmployeeInfo(){
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the payslip generator! \nPlease input your first name:");
-        firstName = scanner.nextLine();
+        this.firstName = scanner.nextLine();
         System.out.println("Please input your surname:");
-        lastName = scanner.nextLine();
+        this.lastName = scanner.nextLine();
         System.out.println("Please enter your annual salary:");
-        annualSalary = Integer.parseInt(scanner.nextLine());
+        this.annualSalary = Integer.parseInt(scanner.nextLine());
         System.out.println("Please enter your super rate:");
-        superRate = Double.parseDouble(scanner.nextLine());
+        this.superRate = Double.parseDouble(scanner.nextLine());
         System.out.println("Please enter your payment start date:");
-        startDate = scanner.nextLine();
+        this.startDate = scanner.nextLine();
         System.out.println("Please enter your payment end date:");
-        endDate = scanner.nextLine();
-    }
-    void calculatePaycheck(){
-        calculateTaxValue();
-        setGrossIncome();
+        this.endDate = scanner.nextLine();
     }
 
-    void setGrossIncome(){
+    private void setGrossIncome(){
         grossIncome = (int)Math.round(annualSalary/12.0);
     }
 
-    void calculateTaxValue(){
+    private void calculateTaxValue(){
         double tax;
         if(annualSalary > 18201 && annualSalary < 37000){
             tax = ((annualSalary - 18200)*0.19) / 12;
@@ -49,6 +44,11 @@ class Employee {
             tax = (54232 + (annualSalary - 180000)*0.45) / 12;
         } else tax = 0.0;
         taxValue = (int)Math.round(tax);
+    }
+
+    void calculatePaycheck(){
+        calculateTaxValue();
+        setGrossIncome();
     }
 
     void printPaycheck(){
