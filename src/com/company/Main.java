@@ -1,6 +1,4 @@
-package com.company;
-
-import java.io.*;
+package src.com.company;
 
 // PAYSLIP KATA DETAILS
 // Pay period = per calendar month
@@ -13,17 +11,12 @@ import java.io.*;
 // When supplied employee details: first name, last name, annual salary (positive integer) and super rate (0% - 50% inclusive), payment start date, generate pay slip information with name, pay period, gross income, income tax, net income and super.
 
 
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Employee user = new Employee();
-
-        user.getEmployeeInfo();
-        user.calculatePaycheck();
-        user.printPaycheck();
-
+        Employee user = Employee.getEmployeeDetails();
+        user.generatePayslip();
     }
-
-
 }
